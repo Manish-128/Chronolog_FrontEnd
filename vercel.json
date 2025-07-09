@@ -5,7 +5,7 @@
       "use": "@vercel/static"
     }
   ],
-  "installCommand": "if [ -d \"flutter\" ]; then cd flutter && git pull && cd ..; else git clone --depth 1 --branch stable https://github.com/flutter/flutter.git; fi && chmod -R 777 flutter && export PATH=\"$PATH:$(pwd)/flutter/bin\" && flutter doctor && flutter clean && flutter pub get",
+  "installCommand": "if [ -d \"flutter\" ]; then cd flutter && git pull && cd ..; else git clone --depth 1 --branch stable https://github.com/flutter/flutter.git; fi && export PATH=\"$PATH:`pwd`/flutter/bin\" && flutter doctor && flutter clean && flutter pub get",
   "buildCommand": "export PATH=\"$PATH:$(pwd)/flutter/bin\" && flutter build web --web-renderer auto",
   "outputDirectory": "build/web",
   "routes": [
