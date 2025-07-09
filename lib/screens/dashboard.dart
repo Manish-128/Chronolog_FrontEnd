@@ -407,64 +407,61 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       ),
                       const SizedBox(height: 16),
                       Center(
-                        child: Container(
-                          width: double.maxFinite/3,
-                          child: SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            child: DataTable(
-                              columnSpacing: 40,
-                              dataRowColor: WidgetStateProperty.resolveWith((states) {
-                                if (states.contains(WidgetState.selected)) {
-                                  return theme.colorScheme.primary.withOpacity(0.08);
-                                }
-                                return null;
-                              }),
-                              columns: [
-                                DataColumn(
-                                  label: Text('ID', style: theme.textTheme.titleLarge),
-                                ),
-                                DataColumn(
-                                  label: Text('Endpoint', style: theme.textTheme.titleLarge),
-                                ),
-                                DataColumn(
-                                  label: Text('Method', style: theme.textTheme.titleLarge),
-                                ),
-                                DataColumn(
-                                  label: Text('Time (ms)', style: theme.textTheme.titleLarge),
-                                ),
-                                DataColumn(
-                                  label: Text('Timestamp', style: theme.textTheme.titleLarge),
-                                ),
-                                DataColumn(
-                                  label: Text('Service', style: theme.textTheme.titleLarge),
-                                ),
-                                DataColumn(
-                                  label: Text('Status', style: theme.textTheme.titleLarge),
-                                ),
-                              ],
-                              rows: filteredLogs.map((log) {
-                                return DataRow(
-                                  cells: [
-                                    DataCell(Text(log.id.toString(), style: theme.textTheme.bodyMedium)),
-                                    DataCell(Text(log.endpoint, style: theme.textTheme.bodyMedium)),
-                                    DataCell(Text(log.method, style: theme.textTheme.bodyMedium)),
-                                    DataCell(Text(log.responseTime.toString(), style: theme.textTheme.bodyMedium)),
-                                    DataCell(Text(log.timestamp, style: theme.textTheme.bodySmall)),
-                                    DataCell(Text(log.service, style: theme.textTheme.bodyMedium)),
-                                    DataCell(Text(
-                                      log.statusCode.toString(),
-                                      style: theme.textTheme.bodyMedium?.copyWith(
-                                        color: log.statusCode == 200
-                                            ? Colors.green
-                                            : log.statusCode == 404
-                                            ? Colors.orange
-                                            : Colors.red,
-                                      ),
-                                    )),
-                                  ],
-                                );
-                              }).toList(),
-                            ),
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: DataTable(
+                            columnSpacing: 30,
+                            dataRowColor: WidgetStateProperty.resolveWith((states) {
+                              if (states.contains(WidgetState.selected)) {
+                                return theme.colorScheme.primary.withOpacity(0.08);
+                              }
+                              return null;
+                            }),
+                            columns: [
+                              DataColumn(
+                                label: Text('ID', style: theme.textTheme.titleLarge),
+                              ),
+                              DataColumn(
+                                label: Text('Endpoint', style: theme.textTheme.titleLarge),
+                              ),
+                              DataColumn(
+                                label: Text('Method', style: theme.textTheme.titleLarge),
+                              ),
+                              DataColumn(
+                                label: Text('Time (ms)', style: theme.textTheme.titleLarge),
+                              ),
+                              DataColumn(
+                                label: Text('Timestamp', style: theme.textTheme.titleLarge),
+                              ),
+                              DataColumn(
+                                label: Text('Service', style: theme.textTheme.titleLarge),
+                              ),
+                              DataColumn(
+                                label: Text('Status', style: theme.textTheme.titleLarge),
+                              ),
+                            ],
+                            rows: filteredLogs.map((log) {
+                              return DataRow(
+                                cells: [
+                                  DataCell(Text(log.id.toString(), style: theme.textTheme.bodyMedium)),
+                                  DataCell(Text(log.endpoint, style: theme.textTheme.bodyMedium)),
+                                  DataCell(Text(log.method, style: theme.textTheme.bodyMedium)),
+                                  DataCell(Text(log.responseTime.toString(), style: theme.textTheme.bodyMedium)),
+                                  DataCell(Text(log.timestamp, style: theme.textTheme.bodySmall)),
+                                  DataCell(Text(log.service, style: theme.textTheme.bodyMedium)),
+                                  DataCell(Text(
+                                    log.statusCode.toString(),
+                                    style: theme.textTheme.bodyMedium?.copyWith(
+                                      color: log.statusCode == 200
+                                          ? Colors.green
+                                          : log.statusCode == 404
+                                          ? Colors.orange
+                                          : Colors.red,
+                                    ),
+                                  )),
+                                ],
+                              );
+                            }).toList(),
                           ),
                         ),
                       ),
