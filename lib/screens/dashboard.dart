@@ -412,7 +412,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           child: SingleChildScrollView(
                             scrollDirection: Axis.horizontal,
                             child: DataTable(
-                              columnSpacing: 30,
+                              columnSpacing: 40,
                               dataRowColor: WidgetStateProperty.resolveWith((states) {
                                 if (states.contains(WidgetState.selected)) {
                                   return theme.colorScheme.primary.withOpacity(0.08);

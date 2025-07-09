@@ -1,17 +1,8 @@
 {
-  "builds": [
+  "rewrites": [
     {
-      "src": "build/web/**",
-      "use": "@vercel/static"
-    }
-  ],
-  "installCommand": "if [ -d \"flutter\" ]; then cd flutter && git pull && cd ..; else git clone --depth 1 --branch stable https://github.com/flutter/flutter.git; fi && export PATH=\"$PATH:`pwd`/flutter/bin\" && flutter doctor && flutter clean && flutter pub get",
-  "buildCommand": "export PATH=\"$PATH:$(pwd)/flutter/bin\" && flutter build web --web-renderer auto",
-  "outputDirectory": "build/web",
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
